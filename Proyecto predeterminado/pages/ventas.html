@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodControl - Ventas y Pagos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a class="brand" href="dashboard.html">
+                    <span class="brand-mark" data-icon="logo"></span>
+                    <span>FoodControl</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon" data-icon="home"></span>
+                    <span>Inicio</span>
+                </a>
+                <a href="menu.html" class="nav-item">
+                    <span class="nav-icon" data-icon="menu"></span>
+                    <span>Menú y Productos</span>
+                </a>
+                <a href="pedidos.html" class="nav-item">
+                    <span class="nav-icon" data-icon="orders"></span>
+                    <span>Pedidos</span>
+                </a>
+                <a href="mesas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="tables"></span>
+                    <span>Mesas</span>
+                </a>
+                <a href="ventas.html" class="nav-item active">
+                    <span class="nav-icon" data-icon="sales"></span>
+                    <span>Ventas y Pagos</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Administrador</div>
+                        <div class="user-role" id="userRole">Administrador</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <span data-icon="logout"></span>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <button class="menu-toggle" type="button" aria-label="Abrir menú" onclick="toggleSidebar()">
+                        <span data-icon="bars"></span>
+                    </button>
+                    <div>
+                        <span class="eyebrow">Restaurante FoodControl</span>
+                        <h1>Ventas y Pagos</h1>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span id="currentDate"></span>
+                    <span>Bienvenido, <strong id="headerUserName">Administrador</strong></span>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="stats-grid" style="margin-bottom: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Ventas totales</span>
+                            <span class="stat-icon" data-icon="money"></span>
+                        </div>
+                        <div class="stat-value" id="totalSales">$0</div>
+                        <div class="stat-change">Todas las ventas registradas</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Ventas de hoy</span>
+                            <span class="stat-icon" data-icon="calendar"></span>
+                        </div>
+                        <div class="stat-value" id="todaySales">$0</div>
+                        <div class="stat-change">Ingresos del día actual</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Transacciones</span>
+                            <span class="stat-icon" data-icon="receipt"></span>
+                        </div>
+                        <div class="stat-value" id="totalTransactions">0</div>
+                        <div class="stat-change">Pagos simulados procesados</div>
+                    </div>
+                </div>
+
+                <div class="sales-layout">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Pedidos por cobrar</h2>
+                            <span style="color: var(--text-secondary); font-size: 0.8rem;">Listos o entregados</span>
+                        </div>
+                        <div id="pendingPaymentList" class="payment-list">
+                            <p class="empty-state">Cargando pedidos...</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Historial de ventas</h2>
+                        </div>
+                        <div class="filters" style="margin-bottom: 1rem;">
+                            <div class="filter-group" style="flex: 1;">
+                                <input type="text" id="searchSale" placeholder="Buscar por comprobante..." onkeyup="filterSales()">
+                            </div>
+                        </div>
+                        <div class="table-container" style="max-height: 480px; overflow-y: auto;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Comprobante</th>
+                                        <th>Fecha / hora</th>
+                                        <th>Total</th>
+                                        <th>Método</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="salesTableBody">
+                                    <tr><td colspan="5" class="empty-state">No hay ventas registradas</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de pago -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Registrar pago simulado</h2>
+                <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="paymentOrderInfo" class="payment-summary"></div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Método de pago *</label>
+                    <select id="paymentMethod" onchange="handlePaymentMethodChange()">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                        <option value="Transferencia">Transferencia</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="paymentAmountGroup">
+                    <label for="paymentAmount">Monto recibido (COP)</label>
+                    <input type="number" id="paymentAmount" placeholder="Ingrese el monto recibido" min="0" oninput="updateChangePreview()">
+                    <div class="error-message" id="paymentAmountError"></div>
+                </div>
+
+                <div class="form-group" id="changeGroup" style="display: none;">
+                    <label>Cambio</label>
+                    <div class="change-display" id="changeAmount">$0</div>
+                </div>
+
+                <div class="info-note">
+                    <span data-icon="alert"></span>
+                    <span>Este cobro es una simulación académica. No se procesan pagos reales ni se envían datos a un banco.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closePaymentModal()">Cancelar</button>
+                <button class="btn btn-success" style="width: auto;" onclick="processPayment()">Confirmar pago</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comprobante -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content" style="max-width: 480px;">
+            <div class="modal-header">
+                <h2>Comprobante de pago</h2>
+                <span class="modal-close" onclick="closeReceiptModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="receiptContent"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closeReceiptModal()">Cerrar</button>
+                <button class="btn" style="width: auto;" onclick="printReceipt()">Imprimir</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ui.js"></script>
+    <script src="../js/ventas.js"></script>
+</body>
+</html>

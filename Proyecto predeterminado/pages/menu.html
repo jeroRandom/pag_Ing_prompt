@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodControl - Menú y Productos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a class="brand" href="dashboard.html">
+                    <span class="brand-mark" data-icon="logo"></span>
+                    <span>FoodControl</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon" data-icon="home"></span>
+                    <span>Inicio</span>
+                </a>
+                <a href="menu.html" class="nav-item active">
+                    <span class="nav-icon" data-icon="menu"></span>
+                    <span>Menú y Productos</span>
+                </a>
+                <a href="pedidos.html" class="nav-item">
+                    <span class="nav-icon" data-icon="orders"></span>
+                    <span>Pedidos</span>
+                </a>
+                <a href="mesas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="tables"></span>
+                    <span>Mesas</span>
+                </a>
+                <a href="ventas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="sales"></span>
+                    <span>Ventas y Pagos</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Administrador</div>
+                        <div class="user-role" id="userRole">Administrador</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <span data-icon="logout"></span>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <button class="menu-toggle" type="button" aria-label="Abrir menú" onclick="toggleSidebar()">
+                        <span data-icon="bars"></span>
+                    </button>
+                    <div>
+                        <span class="eyebrow">Restaurante FoodControl</span>
+                        <h1>Menú y Productos</h1>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span id="currentDate"></span>
+                    <span>Bienvenido, <strong id="headerUserName">Administrador</strong></span>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <div>
+                        <h1>Gestión de productos</h1>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem;">Administra los platos y bebidas disponibles en el restaurante.</p>
+                    </div>
+                    <button class="btn" style="width: auto;" onclick="openProductModal()">
+                        <span data-icon="plus"></span>
+                        Agregar producto
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group" style="flex: 1; min-width: 220px;">
+                        <input type="text" id="searchProduct" placeholder="Buscar por nombre..." onkeyup="filterProducts()">
+                    </div>
+                    <div class="filter-group">
+                        <select id="filterCategory" onchange="filterProducts()">
+                            <option value="all">Todas las categorías</option>
+                            <option value="Hamburguesas">Hamburguesas</option>
+                            <option value="Pizzas">Pizzas</option>
+                            <option value="Comidas rápidas">Comidas rápidas</option>
+                            <option value="Bebidas">Bebidas</option>
+                            <option value="Postres">Postres</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="filterStatus" onchange="filterProducts()">
+                            <option value="all">Todos los estados</option>
+                            <option value="true">Disponibles</option>
+                            <option value="false">No disponibles</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cards-grid" id="productsGrid">
+                    <p class="empty-state">Cargando productos...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Formulario de producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Agregar producto</h2>
+                <span class="modal-close" onclick="closeProductModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="productForm" novalidate>
+                    <input type="hidden" id="productId">
+
+                    <div class="form-group">
+                        <label for="productName">Nombre del producto *</label>
+                        <input type="text" id="productName" placeholder="Ej: Hamburguesa Clásica">
+                        <div class="error-message" id="productNameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDescription">Descripción *</label>
+                        <textarea id="productDescription" placeholder="Describe los ingredientes o características del producto"></textarea>
+                        <div class="error-message" id="productDescriptionError"></div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="productCategory">Categoría *</label>
+                            <select id="productCategory">
+                                <option value="">Seleccione una categoría</option>
+                                <option value="Hamburguesas">Hamburguesas</option>
+                                <option value="Pizzas">Pizzas</option>
+                                <option value="Comidas rápidas">Comidas rápidas</option>
+                                <option value="Bebidas">Bebidas</option>
+                                <option value="Postres">Postres</option>
+                            </select>
+                            <div class="error-message" id="productCategoryError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productPrice">Precio (COP) *</label>
+                            <input type="number" id="productPrice" placeholder="Ej: 25000" min="0">
+                            <div class="error-message" id="productPriceError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">Ruta de la imagen</label>
+                        <input type="text" id="productImage" placeholder="assets/images/producto.svg">
+                        <small style="color: var(--text-secondary); font-size: 0.75rem;">Opcional. Puede usar las imágenes incluidas en assets/images.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="productAvailable" checked>
+                            Producto disponible para la venta
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closeProductModal()">Cancelar</button>
+                <button class="btn" style="width: auto;" onclick="saveProduct()">Guardar producto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ui.js"></script>
+    <script src="../js/menu.js"></script>
+</body>
+</html>

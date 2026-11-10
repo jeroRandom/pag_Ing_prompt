@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Pizza margarita">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#231f1b"/><stop offset="1" stop-color="#100f0d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="52%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".22"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cheese" cx="45%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#e8b954"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="210" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="352" rx="190" ry="22" fill="#000" opacity=".35"/>
+  <circle cx="300" cy="210" r="158" fill="#c98232"/>
+  <circle cx="300" cy="210" r="144" fill="#a85f22"/>
+  <circle cx="300" cy="210" r="132" fill="url(#cheese)"/>
+  <g fill="#e34b38">
+    <circle cx="250" cy="160" r="15"/><circle cx="348" cy="148" r="13"/>
+    <circle cx="384" cy="228" r="15"/><circle cx="312" cy="276" r="14"/>
+    <circle cx="218" cy="268" r="13"/><circle cx="272" cy="218" r="11"/>
+  </g>
+  <g fill="#5f9c3c">
+    <path d="M298 170c24-16 48 0 38 14-8 12-30 8-38-14Z"/>
+    <path d="M184 204c26-18 46 2 34 16-10 12-30 4-34-16Z"/>
+    <path d="M356 300c22-14 44 2 32 16-10 12-28 2-32-16Z"/>
+    <path d="M230 330c18-14 38 0 28 14-8 10-24 2-28-14Z"/>
+  </g>
+  <g fill="#fff8db" opacity=".85">
+    <circle cx="326" cy="190" r="5"/><circle cx="210" cy="220" r="4"/>
+    <circle cx="352" cy="252" r="4"/><circle cx="270" cy="302" r="5"/>
+  </g>
+  <path d="M300 210 428 182" stroke="#c98232" stroke-width="3" opacity=".5"/>
+  <path d="M300 210 250 334" stroke="#c98232" stroke-width="3" opacity=".5"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Hamburguesa clásica">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25211d"/><stop offset="1" stop-color="#12100e"/>
+    </linearGradient>
+    <linearGradient id="bun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5b95b"/><stop offset="1" stop-color="#c97a24"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="50%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".22"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="210" r="205" fill="url(#glow)"/>
+  <ellipse cx="300" cy="338" rx="180" ry="22" fill="#000" opacity=".35"/>
+  <path d="M148 200c0-74 68-126 152-126s152 52 152 126" fill="url(#bun)"/>
+  <path d="M175 148c25-29 72-47 125-47s100 18 125 47" fill="none" stroke="#f9d18b" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <g fill="#ffe9bd" opacity=".9">
+    <ellipse cx="242" cy="123" rx="6" ry="3.5" transform="rotate(-20 242 123)"/>
+    <ellipse cx="292" cy="108" rx="6" ry="3.5" transform="rotate(10 292 108)"/>
+    <ellipse cx="344" cy="117" rx="6" ry="3.5" transform="rotate(-10 344 117)"/>
+    <ellipse cx="385" cy="142" rx="6" ry="3.5" transform="rotate(20 385 142)"/>
+    <ellipse cx="214" cy="153" rx="6" ry="3.5" transform="rotate(15 214 153)"/>
+  </g>
+  <path d="M142 202c38-20 76 8 112-8s74-24 108-6 52 24 96 10v26c-32 22-70 2-100 12s-70 20-104 6-72-22-112-6Z" fill="#68a83f"/>
+  <path d="M150 218c34-14 66 8 100-4s76-20 108-4 56 16 84 4v14c-30 18-62 6-96 16s-70 12-100 0-62-18-96-8Z" fill="#8dc457"/>
+  <path d="M148 234h304v22c0 18-14 30-34 30H182c-20 0-34-12-34-30Z" fill="#5d3220"/>
+  <path d="M160 252h280" stroke="#7c452d" stroke-width="5" opacity=".5"/>
+  <path d="M154 266l48-26 48 26 48-26 48 26 46-24v28H154Z" fill="#f2a93b"/>
+  <path d="M142 292h316v16c0 20-16 34-36 34H178c-20 0-36-14-36-34Z" fill="#d88a2f"/>
+  <path d="M170 302h260" stroke="#f5b95b" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+</svg>

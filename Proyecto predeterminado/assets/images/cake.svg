@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Porción de torta de chocolate">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#231d1b"/><stop offset="1" stop-color="#100e0d"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a4a2d"/><stop offset="1" stop-color="#4b2a17"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".2"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="205" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="358" rx="160" ry="20" fill="#000" opacity=".4"/>
+  <path d="M180 190 420 240v78c0 10-8 18-18 18H198c-10 0-18-8-18-18Z" fill="#2e1a0f"/>
+  <path d="M180 190 300 212l120 28-120 38-120-38Z" fill="#8b5636"/>
+  <path d="M180 228v44l120 38v-44Z" fill="#5b3420"/>
+  <path d="M420 240v50l-120 40v-50Z" fill="#6d3f26"/>
+  <path d="M180 228 300 268l120-42v-14L300 252Z" fill="#a46a44"/>
+  <path d="M196 212 300 232l104 18-104 26-104-26Z" fill="#56331e"/>
+  <path d="M196 212 300 232l104 18-104 26-104-26Z" fill="none" stroke="#d9a06b" stroke-width="4" opacity=".5"/>
+  <path d="M216 188c18-12 34-4 48 2 16-10 34-4 48 4 14-8 30-2 42 4-12 12-34 10-50 6-14 8-32 8-46 2-14 6-30 2-42-2Z" fill="#fff2e0"/>
+  <circle cx="300" cy="168" r="17" fill="#d93b3b"/>
+  <path d="M300 151c6-14 20-18 26-12-4 12-14 14-26 12Z" fill="#7cb342"/>
+  <g fill="#3b1f10" opacity=".8">
+    <circle cx="240" cy="252" r="4"/><circle cx="330" cy="270" r="4"/><circle cx="280" cy="290" r="4"/><circle cx="370" cy="252" r="4"/>
+  </g>
+</svg>

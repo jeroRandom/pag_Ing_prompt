@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Hamburguesa doble con queso y tocino">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#221d1a"/><stop offset="1" stop-color="#100e0c"/>
+    </linearGradient>
+    <linearGradient id="bun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0ae4c"/><stop offset="1" stop-color="#b96a1c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="52%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".25"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="205" r="208" fill="url(#glow)"/>
+  <ellipse cx="300" cy="354" rx="178" ry="20" fill="#000" opacity=".35"/>
+  <path d="M156 168c0-68 64-114 144-114s144 46 144 114" fill="url(#bun)"/>
+  <g fill="#ffe9bd" opacity=".9">
+    <ellipse cx="240" cy="98" rx="6" ry="3.5" transform="rotate(-20 240 98)"/>
+    <ellipse cx="300" cy="84" rx="6" ry="3.5" transform="rotate(10 300 84)"/>
+    <ellipse cx="356" cy="98" rx="6" ry="3.5" transform="rotate(-10 356 98)"/>
+    <ellipse cx="390" cy="126" rx="6" ry="3.5" transform="rotate(20 390 126)"/>
+    <ellipse cx="208" cy="130" rx="6" ry="3.5" transform="rotate(15 208 130)"/>
+  </g>
+  <path d="M150 165c40-14 70 8 106-4s70-16 104-2 58 14 92 2v20c-34 18-64 2-98 10s-68 12-100 0-66-16-104-6Z" fill="#7cb342"/>
+  <path d="M152 190h300v20H152Z" fill="#5b2f1c"/>
+  <path d="M158 208l46-24 46 24 46-24 46 24 46-24 45 24Z" fill="#f4ad3c"/>
+  <path d="M150 224h304v18c0 16-12 28-30 28H180c-18 0-30-12-30-28Z" fill="#6b3721"/>
+  <path d="M162 240c32-10 58 8 88 0s58-12 88-2 44 8 56 2" fill="none" stroke="#8f4a2c" stroke-width="7" stroke-linecap="round"/>
+  <path d="M156 250l48-22 48 22 48-22 48 22 46-22v20H156Z" fill="#ffc247"/>
+  <path d="M150 268h304v16c0 16-12 26-30 26H180c-18 0-30-10-30-26Z" fill="#5b2f1c"/>
+  <path d="M140 300h320v14c0 20-16 32-36 32H176c-20 0-36-12-36-32Z" fill="#cf7f25"/>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Perro caliente">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#241f1a"/><stop offset="1" stop-color="#100e0c"/>
+    </linearGradient>
+    <linearGradient id="bun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0b45c"/><stop offset="1" stop-color="#c77d2a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="52%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".22"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="210" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="340" rx="210" ry="22" fill="#000" opacity=".35"/>
+  <g transform="rotate(-12 300 210)">
+    <path d="M110 238c-12-52 8-92 42-92 22 0 34 18 46 36l174 128c18 14 20 40 4 54-16 14-42 10-56-8L142 270c-14-10-27-18-32-32Z" fill="url(#bun)"/>
+    <path d="M128 222c10-34 26-56 48-58 20-2 34 14 46 32l166 122c12 10 12 24 2 32-10 8-26 4-38-4L172 244c-20-14-48-6-44-22Z" fill="#8f4a26"/>
+    <path d="M140 224c44-20 78 12 112 36l124 92" fill="none" stroke="#b3622f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M160 208c20-12 42 4 62 18l178 128c10 8 14 18 8 24-8 8-22 4-32-4L198 246c-24-18-50-22-38-38Z" fill="#d94d3f"/>
+    <path d="M120 268c16-6 34 4 50 18l166 128c12 10 16 24 6 32-10 8-30 4-44-6L138 300c-18-14-30-26-18-32Z" fill="url(#bun)"/>
+    <path d="M192 216c20 4 40 18 58 34" stroke="#f2c84b" stroke-width="9" stroke-linecap="round"/>
+    <path d="M230 242c18 2 34 14 52 28" stroke="#f2c84b" stroke-width="9" stroke-linecap="round"/>
+    <path d="M274 274c16 0 30 10 46 22" stroke="#f2c84b" stroke-width="9" stroke-linecap="round"/>
+    <g fill="#fff" opacity=".7">
+      <circle cx="206" cy="232" r="4"/><circle cx="246" cy="258" r="4"/><circle cx="290" cy="290" r="4"/>
+    </g>
+  </g>
+</svg>

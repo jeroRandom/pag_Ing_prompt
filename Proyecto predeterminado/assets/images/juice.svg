@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Jugo natural de naranja">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23201b"/><stop offset="1" stop-color="#0f0e0c"/>
+    </linearGradient>
+    <linearGradient id="juice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb23e"/><stop offset="1" stop-color="#f07221"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffa726" stop-opacity=".22"/><stop offset="1" stop-color="#ffa726" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="205" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="364" rx="120" ry="18" fill="#000" opacity=".4"/>
+  <path d="M232 120h136l-16 222c-1 12-10 22-23 22h-58c-13 0-22-10-23-22Z" fill="#ffffff" opacity=".12"/>
+  <path d="M245 184h110l-11 152c-1 9-8 16-17 16h-54c-9 0-16-7-17-16Z" fill="url(#juice)"/>
+  <path d="M233 132h134l-4 46H237Z" fill="#ffffff" opacity=".16"/>
+  <ellipse cx="300" cy="120" rx="68" ry="14" fill="#ffffff" opacity=".25"/>
+  <g transform="rotate(-18 356 116)">
+    <circle cx="356" cy="116" r="54" fill="#ffb300"/>
+    <circle cx="356" cy="116" r="44" fill="#ffcc4d"/>
+    <path d="M356 72v88M312 116h88M325 85l62 62M387 85l-62 62" stroke="#f7a41c" stroke-width="3" opacity=".7"/>
+  </g>
+  <path d="M300 118c10-34 32-58 52-70" fill="none" stroke="#6b9c3c" stroke-width="8" stroke-linecap="round"/>
+  <path d="M338 70c18-18 42-16 46-6 6 14-22 28-46 6Z" fill="#76b043"/>
+  <g fill="#fff" opacity=".22">
+    <circle cx="286" cy="214" r="5"/><circle cx="318" cy="240" r="4"/><circle cx="276" cy="272" r="4"/><circle cx="322" cy="304" r="5"/>
+  </g>
+</svg>

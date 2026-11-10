@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodControl - Pedidos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a class="brand" href="dashboard.html">
+                    <span class="brand-mark" data-icon="logo"></span>
+                    <span>FoodControl</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon" data-icon="home"></span>
+                    <span>Inicio</span>
+                </a>
+                <a href="menu.html" class="nav-item">
+                    <span class="nav-icon" data-icon="menu"></span>
+                    <span>Menú y Productos</span>
+                </a>
+                <a href="pedidos.html" class="nav-item active">
+                    <span class="nav-icon" data-icon="orders"></span>
+                    <span>Pedidos</span>
+                </a>
+                <a href="mesas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="tables"></span>
+                    <span>Mesas</span>
+                </a>
+                <a href="ventas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="sales"></span>
+                    <span>Ventas y Pagos</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Administrador</div>
+                        <div class="user-role" id="userRole">Administrador</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <span data-icon="logout"></span>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <button class="menu-toggle" type="button" aria-label="Abrir menú" onclick="toggleSidebar()">
+                        <span data-icon="bars"></span>
+                    </button>
+                    <div>
+                        <span class="eyebrow">Restaurante FoodControl</span>
+                        <h1>Pedidos</h1>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span id="currentDate"></span>
+                    <span>Bienvenido, <strong id="headerUserName">Administrador</strong></span>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <div>
+                        <h1>Gestión de pedidos</h1>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem;">Crea pedidos, controla su estado y consulta el detalle de cada venta.</p>
+                    </div>
+                    <button class="btn" style="width: auto;" onclick="openNewOrderModal()">
+                        <span data-icon="plus"></span>
+                        Nuevo pedido
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group" style="flex: 1; min-width: 220px;">
+                        <input type="text" id="searchOrder" placeholder="Buscar por código..." onkeyup="filterOrders()">
+                    </div>
+                    <div class="filter-group">
+                        <select id="filterOrderStatus" onchange="filterOrders()">
+                            <option value="all">Todos los estados</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En preparación">En preparación</option>
+                            <option value="Listo para entregar">Listo para entregar</option>
+                            <option value="Entregado">Entregado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Fecha / hora</th>
+                                    <th>Mesa o modalidad</th>
+                                    <th>Productos</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <tr><td colspan="7" class="empty-state">Cargando pedidos...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para crear pedido -->
+    <div id="newOrderModal" class="modal">
+        <div class="modal-content" style="max-width: 960px;">
+            <div class="modal-header">
+                <h2>Crear nuevo pedido</h2>
+                <span class="modal-close" onclick="closeNewOrderModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="order-layout">
+                    <div>
+                        <h3 style="margin-bottom: 0.85rem; font-size: 1rem; color: var(--orange);">Productos disponibles</h3>
+                        <div class="filters" style="margin-bottom: 0.85rem;">
+                            <div class="filter-group" style="flex: 1;">
+                                <input type="text" id="searchMenuProduct" placeholder="Buscar producto..." onkeyup="filterMenuProducts()">
+                            </div>
+                            <div class="filter-group">
+                                <select id="filterMenuCategory" onchange="filterMenuProducts()">
+                                    <option value="all">Todas</option>
+                                    <option value="Hamburguesas">Hamburguesas</option>
+                                    <option value="Pizzas">Pizzas</option>
+                                    <option value="Comidas rápidas">Comidas rápidas</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Postres">Postres</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="menuProductsList" class="menu-products-list">
+                            <p class="empty-state">Cargando productos...</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 0.85rem; font-size: 1rem; color: var(--orange);">Detalle del pedido</h3>
+
+                        <div class="form-group">
+                            <label for="orderType">Modalidad *</label>
+                            <select id="orderType" onchange="toggleTableSelection()">
+                                <option value="Para llevar">Para llevar</option>
+                                <option value="En mesa">En mesa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="tableSelectionGroup" style="display: none;">
+                            <label for="orderTable">Mesa *</label>
+                            <select id="orderTable">
+                                <option value="">Seleccione una mesa disponible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="orderObservations">Observaciones</label>
+                            <textarea id="orderObservations" placeholder="Notas adicionales para la cocina..."></textarea>
+                        </div>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.75rem 0 0.5rem;">
+                            <h4 style="font-size: 0.9rem;">Carrito</h4>
+                            <span style="color: var(--text-secondary); font-size: 0.75rem;" id="cartCount">0 artículos</span>
+                        </div>
+                        <div id="cartItems" class="cart-items">
+                            <p class="empty-state">El carrito está vacío</p>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 700;">
+                                <span>Total:</span>
+                                <span id="cartTotal" style="color: var(--success);">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closeNewOrderModal()">Cancelar</button>
+                <button class="btn" style="width: auto;" onclick="createOrder()">Crear pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de detalles -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Detalle del pedido</h2>
+                <span class="modal-close" onclick="closeOrderDetailsModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="orderDetailsContent"></div>
+                <div class="form-group" style="margin-top: 1rem;" id="statusChangeGroup">
+                    <label for="orderStatusChange">Cambiar estado</label>
+                    <select id="orderStatusChange">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En preparación">En preparación</option>
+                        <option value="Listo para entregar">Listo para entregar</option>
+                        <option value="Entregado">Entregado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </div>
+                <div class="info-note" id="paidNote" style="display: none;">
+                    <span data-icon="check"></span>
+                    <span>Este pedido ya fue pagado. Para proteger la venta registrada, su estado no puede modificarse desde aquí.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closeOrderDetailsModal()">Cerrar</button>
+                <button class="btn" style="width: auto;" id="updateStatusBtn" onclick="updateOrderStatus()">Actualizar estado</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ui.js"></script>
+    <script src="../js/pedidos.js"></script>
+</body>
+</html>

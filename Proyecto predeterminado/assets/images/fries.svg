@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Papas fritas">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#241f1b"/><stop offset="1" stop-color="#100e0d"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f05a35"/><stop offset="1" stop-color="#b93219"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="52%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".22"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="205" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="360" rx="150" ry="20" fill="#000" opacity=".35"/>
+  <g stroke="#b97719" stroke-width="4">
+    <rect x="216" y="108" width="34" height="196" rx="8" transform="rotate(-12 233 206)" fill="#f6c64a"/>
+    <rect x="254" y="86" width="34" height="218" rx="8" transform="rotate(-5 271 195)" fill="#ffd766"/>
+    <rect x="294" y="78" width="34" height="224" rx="8" transform="rotate(3 311 190)" fill="#f7c74a"/>
+    <rect x="334" y="92" width="34" height="212" rx="8" transform="rotate(9 351 198)" fill="#ffda6a"/>
+    <rect x="368" y="116" width="32" height="188" rx="8" transform="rotate(15 384 210)" fill="#f3bd3b"/>
+  </g>
+  <path d="M192 200h216l-24 152c-2 14-14 24-28 24H244c-14 0-26-10-28-24Z" fill="url(#box)"/>
+  <path d="M210 224h180l-18 118c-1 8-8 14-16 14H244c-8 0-15-6-16-14Z" fill="#ff6b35" opacity=".35"/>
+  <circle cx="300" cy="278" r="38" fill="#fff" opacity=".12"/>
+  <path d="M284 278c0-10 8-18 18-18s18 8 18 18-8 18-18 18" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+  <g fill="#fff" opacity=".65">
+    <circle cx="236" cy="250" r="3"/><circle cx="352" cy="268" r="3"/><circle cx="266" cy="330" r="3"/><circle cx="338" cy="318" r="3"/>
+  </g>
+</svg>

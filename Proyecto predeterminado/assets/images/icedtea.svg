@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Té helado con limón">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#211e1b"/><stop offset="1" stop-color="#0e0d0c"/>
+    </linearGradient>
+    <linearGradient id="tea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c87a2f"/><stop offset="1" stop-color="#8a4517"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff6b35" stop-opacity=".2"/><stop offset="1" stop-color="#ff6b35" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="205" r="200" fill="url(#glow)"/>
+  <ellipse cx="300" cy="366" rx="120" ry="18" fill="#000" opacity=".4"/>
+  <path d="M230 118h140l-16 224c-1 12-10 22-23 22h-62c-13 0-22-10-23-22Z" fill="#ffffff" opacity=".12"/>
+  <path d="M244 186h112l-11 150c-1 9-8 16-17 16h-56c-9 0-16-7-17-16Z" fill="url(#tea)"/>
+  <path d="M230 132h140l-4 44H234Z" fill="#ffffff" opacity=".16"/>
+  <ellipse cx="300" cy="118" rx="70" ry="14" fill="#ffffff" opacity=".25"/>
+  <g fill="#ffffff" opacity=".3">
+    <rect x="256" y="144" width="38" height="34" rx="8" transform="rotate(-14 275 161)"/>
+    <rect x="310" y="150" width="34" height="30" rx="8" transform="rotate(12 327 165)"/>
+  </g>
+  <g transform="rotate(14 382 126)">
+    <circle cx="382" cy="126" r="44" fill="#f5d34c"/>
+    <circle cx="382" cy="126" r="36" fill="#fff19a"/>
+    <path d="M382 90v72M346 126h72M357 101l50 50M407 101l-50 50" stroke="#e7c22f" stroke-width="3"/>
+  </g>
+  <path d="M300 116c0-42 14-64 12-82" fill="none" stroke="#ff6b35" stroke-width="9" stroke-linecap="round"/>
+  <g fill="#fff" opacity=".22">
+    <circle cx="278" cy="226" r="4"/><circle cx="322" cy="250" r="5"/><circle cx="286" cy="300" r="4"/>
+  </g>
+</svg>

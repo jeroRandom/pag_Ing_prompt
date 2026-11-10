@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-label="Imagen no disponible">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#242424"/><stop offset="1" stop-color="#151515"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#bg)"/>
+  <circle cx="300" cy="200" r="92" fill="none" stroke="#ff6b35" stroke-width="7" opacity=".8"/>
+  <path d="M246 168v48a20 20 0 0 0 40 0v-48M266 168v72" stroke="#ff6b35" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <path d="M330 168v72M330 168a30 30 0 0 1 0 48h-1v24" stroke="#ff6b35" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <text x="300" y="342" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="20" letter-spacing="2">FOODCONTROL</text>
+</svg>

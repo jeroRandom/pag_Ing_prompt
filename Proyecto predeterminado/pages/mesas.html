@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodControl - Mesas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a class="brand" href="dashboard.html">
+                    <span class="brand-mark" data-icon="logo"></span>
+                    <span>FoodControl</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon" data-icon="home"></span>
+                    <span>Inicio</span>
+                </a>
+                <a href="menu.html" class="nav-item">
+                    <span class="nav-icon" data-icon="menu"></span>
+                    <span>Menú y Productos</span>
+                </a>
+                <a href="pedidos.html" class="nav-item">
+                    <span class="nav-icon" data-icon="orders"></span>
+                    <span>Pedidos</span>
+                </a>
+                <a href="mesas.html" class="nav-item active">
+                    <span class="nav-icon" data-icon="tables"></span>
+                    <span>Mesas</span>
+                </a>
+                <a href="ventas.html" class="nav-item">
+                    <span class="nav-icon" data-icon="sales"></span>
+                    <span>Ventas y Pagos</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">Administrador</div>
+                        <div class="user-role" id="userRole">Administrador</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <span data-icon="logout"></span>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <button class="menu-toggle" type="button" aria-label="Abrir menú" onclick="toggleSidebar()">
+                        <span data-icon="bars"></span>
+                    </button>
+                    <div>
+                        <span class="eyebrow">Restaurante FoodControl</span>
+                        <h1>Mesas</h1>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span id="currentDate"></span>
+                    <span>Bienvenido, <strong id="headerUserName">Administrador</strong></span>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="page-header">
+                    <div>
+                        <h1>Estado del salón</h1>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem;">Consulta la disponibilidad y el pedido asociado a cada mesa.</p>
+                    </div>
+                </div>
+
+                <div class="tables-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--success);"></span>
+                        <span>Disponible</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--danger);"></span>
+                        <span>Ocupada</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: var(--warning);"></span>
+                        <span>Reservada</span>
+                    </div>
+                    <div style="margin-left: auto; color: var(--text-secondary); font-size: 0.8rem;">
+                        Haz clic en una mesa para cambiar su estado.
+                    </div>
+                </div>
+
+                <div class="tables-grid" id="tablesGrid">
+                    <p class="empty-state">Cargando mesas...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de mesa -->
+    <div id="tableModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="tableModalTitle">Detalle de mesa</h2>
+                <span class="modal-close" onclick="closeTableModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="tableInfo"></div>
+                <div id="tableOrderInfo" class="table-order-box" style="display: none;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--orange); font-size: 0.9rem;">Pedido asociado</h4>
+                    <div id="tableOrderContent"></div>
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label for="tableStatusChange">Cambiar estado</label>
+                    <select id="tableStatusChange">
+                        <option value="Disponible">Disponible</option>
+                        <option value="Ocupada">Ocupada</option>
+                        <option value="Reservada">Reservada</option>
+                    </select>
+                </div>
+                <div class="info-note" style="margin-top: 1rem;">
+                    <span data-icon="alert"></span>
+                    <span>Una mesa con un pedido activo no puede marcarse como disponible hasta que el pedido sea entregado o cancelado.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: auto;" onclick="closeTableModal()">Cerrar</button>
+                <button class="btn" style="width: auto;" onclick="updateTableStatus()">Actualizar mesa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/ui.js"></script>
+    <script src="../js/mesas.js"></script>
+</body>
+</html>
